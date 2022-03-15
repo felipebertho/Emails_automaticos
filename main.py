@@ -1,9 +1,15 @@
-import pandas
-import calculate
+import yagmail
+import os
+import time
 
-print("Hello world!")
+sender = 'fhbertho@gmail.com'
+receiver = 'felipebertho@icloud.com'
 
-y = input("Digite o seu nome: ")
-print("Seja bem-vindo aqui, ", y)
+subject = "This is a Test"
 
+contents = "Here is the content"
 
+yag = yagmail.SMTP(user=sender, password=os.getenv('PASSWORD'))
+yag.send(to=receiver, subject=subject, contents=contents)
+
+print("E-mail sent!")
