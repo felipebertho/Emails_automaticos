@@ -2,14 +2,17 @@ import yagmail
 import os
 import time
 
+#remetente e destinatário
 sender = 'fhbertho@gmail.com'
 receiver = 'felipebertho@icloud.com'
+#Assunto
+subject = "Teste de envio do script"
+#Conteudo do e-mail
+contents = "Esse é o conteúdo do e-mail"
 
-subject = "This is a Test"
+#configuração da senha do e-mail para utilização do script.
+yag = yagmail.SMTP(user=sender, password=os.getenv('PASSWD'))
 
-contents = "Here is the content"
-
-yag = yagmail.SMTP(user=sender, password=os.getenv('PASSWORD'))
 yag.send(to=receiver, subject=subject, contents=contents)
 
-print("E-mail sent!")
+print("E-mail enviado! ")
